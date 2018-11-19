@@ -1,0 +1,28 @@
+default: &default
+  encoding: utf8
+  pool: 5
+  socket: /tmp/mysql.sock
+  adapter: mysql2
+
+development:
+  <<: *default
+  host: localhost
+  username: root
+  password: root 
+  database: swaraynapp
+
+
+test:
+  host: localhost
+  username: root
+  password: root
+  database: swaraynapp_test
+
+
+production:
+  host: localhost
+  username: root
+  password: root
+  database: swaraynapp_production
+
+

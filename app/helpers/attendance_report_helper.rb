@@ -1,0 +1,2 @@
+module AttendanceReportHelper
+end

@@ -1,0 +1,28 @@
+<div class="container-fluid"  style="margin-top: 10%;">
+   <div class="row text-ligt">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 h2 text-danger">Follow Ups By Volunteers</div>
+      <div class="col-md-4"></div>
+   </div>
+   <div class="row">
+         <div class="col-md-1"></div>
+         <div class="col-md-10">
+              <% Volunteer.all.each do |volunteer|%>
+            <div class="jumbotron jumbotron-fluid">
+               <div class="container">
+                  <p class="lead "><strong>Id:</strong> <%= volunteer.id %></p>
+                  <p class="lead"><strong>Name:</strong> <%= volunteer.name %></p>
+                  <p class="lead"><strong>PhoneNo:</strong> <%= volunteer.phone_no %></p>
+                  <p class="lead"><strong>Email:</strong> <%= volunteer.email %></p>
+                  <p class="lead"><strong>Dob:</strong> <%= volunteer.dob %></p>
+                  <p class="lead"><strong>Associated Since:</strong> <%= volunteer.associated_since %></p>
+                  <p class="lead"><strong>Type:</strong> <%= volunteer.type %></p>
+                  <p class="lead"><strong>Follow_ups:</strong> <%= link_to "follow_ups" ,report_get_volunteer_follow_ups_path(:volunteer_id => volunteer.id) %></p>
+               </div>
+            </div>
+            <% end %>
+         </div>
+         <div class="col-md-1"></div>
+   </div>
+   <script></script>
+</div>

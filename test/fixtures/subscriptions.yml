@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  member: one
+  product: one
+  subscribed_at: 2018-11-16
+  duration: 1
+  keyword: MyString
+
+two:
+  member: two
+  product: two
+  subscribed_at: 2018-11-16
+  duration: 1
+  keyword: MyString

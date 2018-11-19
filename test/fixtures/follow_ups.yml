@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  volunteer: one
+  member: one
+  concert: one
+  response: MyString
+
+two:
+  volunteer: two
+  member: two
+  concert: two
+  response: MyString

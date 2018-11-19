@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concert_name: MyString
+  concert_date: 2018-11-16
+  location: one
+
+two:
+  concert_name: MyString
+  concert_date: 2018-11-16
+  location: two

@@ -1,0 +1,8 @@
+class CreateConcertsSubscriptions < ActiveRecord::Migration[5.2]
+  def change
+    create_table :concerts_subscriptions do |t|
+      t.references :concert, foreign_key: true
+      t.references :subscription, foreign_key: true
+    end
+  end
+end

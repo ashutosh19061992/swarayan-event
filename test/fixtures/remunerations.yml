@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concert: one
+  artist: one
+  amount: 1
+  mode_of_payment: MyString
+
+two:
+  concert: two
+  artist: two
+  amount: 1
+  mode_of_payment: MyString
