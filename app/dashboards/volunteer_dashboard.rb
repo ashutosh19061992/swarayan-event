@@ -18,7 +18,7 @@ class VolunteerDashboard < Administrate::BaseDashboard
     associated_since: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    type: Field::String.with_options(searchable: false),
+    volunteer_type: Field::String.with_options(searchable: false),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -46,7 +46,7 @@ class VolunteerDashboard < Administrate::BaseDashboard
     :associated_since,
     :created_at,
     :updated_at,
-    :type,
+    :volunteer_type,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -60,7 +60,7 @@ class VolunteerDashboard < Administrate::BaseDashboard
     :email,
     :dob,
     :associated_since,
-    :type,
+    :volunteer_type,
   ].freeze
 
   # Overwrite this method to customize how volunteers are displayed

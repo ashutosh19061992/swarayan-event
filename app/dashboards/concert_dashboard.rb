@@ -55,7 +55,6 @@ class ConcertDashboard < Administrate::BaseDashboard
     :follow_ups,
     :members,
     :subscriptions,
-    :concert_name,
     :concert_date,
     :artist_id,
   ].freeze

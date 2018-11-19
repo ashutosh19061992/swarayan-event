@@ -8,19 +8,21 @@ class ReportController < ApplicationController
   end  
 
   def follow_ups_by_volunteer
+    
   end
 #  binding.pry
   def get_volunteer_follow_ups
+    
     @volunteer_id = (params[:volunteer_id])
-      Volunteer.all.each do |volunteer|
-        volunteer.follow_ups.each { |follow_up|
-          puts follow_up.concert_id
-          puts follow_up.response
-          puts follow_up.volunteer_id
-          puts follow_up.created_at
-          puts follow_up.updated_at
-        }
-      end
+    @follow = FollowUp.where(volunteer_id: @volunteer_id).take
+    @member = Member.where(id: @follow.member_id).take
+    @concert = Concert.where(id:@follow.concert_id).take
+#    puts(@follow.response)
+#    puts(@member.name)
+#    puts(@concert.concert_name)
+#    puts(@follow.response)
+#    puts(@follow.created_at)
+#    puts(@follow.updated_at)
   end
   
   

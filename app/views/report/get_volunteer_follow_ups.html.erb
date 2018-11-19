@@ -7,22 +7,21 @@
    <div class="row">
          <div class="col-md-1"></div>
          <div class="col-md-10">
-              <% Volunteer.all.each do |volunteer|%>
                 <div class="jumbotron jumbotron-fluid">
                    <div class="container">
-                      <p class="lead "><strong>Id:</strong> <%= volunteer.id %></p>
-                      <p class="lead"><strong>Name:</strong> <%= volunteer.name %></p>
-                      <p class="lead"><strong>PhoneNo:</strong> <%= volunteer.phone_no %></p>
-                      <p class="lead"><strong>Email:</strong> <%= volunteer.email %></p>
-                      <p class="lead"><strong>Dob:</strong> <%= volunteer.dob %></p>
-                      <p class="lead"><strong>Associated Since:</strong> <%= volunteer.associated_since %></p>
-                      <p class="lead"><strong>Type:</strong> <%= volunteer.type %></p>
+                      <p class="lead "><strong>Id:</strong> <%= @follow.id  %> </p>
+                      <p class="lead"><strong>MemberName:</strong> <%= @member.name %>  </p>
+                      <p class="lead"><strong>Concert-Name:</strong> <%= @concert.concert_name %> </p>
+                      <p class="lead"><strong>Response:</strong> <%= @follow.response %></p>
+                      <p class="lead"><strong>Created At:</strong> <%= @follow.created_at %></p>
+                      <p class="lead"><strong>Response:</strong> <%= @follow.updated_at %></p>
+                   </div>
+                   </div>
                    </div>
                 </div>
-              <% end %>
          </div>
          <div class="col-md-1">
-          <%= link_to 'HOME', root_path, class: 'btn btn-primary' %>
+          <%= link_to 'BACK', report_follow_ups_by_volunteers_path, class: 'btn btn-primary' %>
          </div>
    </div>
    <script></script>
