@@ -7,22 +7,32 @@
    <div class="row">
          <div class="col-md-1"></div>
          <div class="col-md-10">
-                <div class="jumbotron jumbotron-fluid">
-                   <div class="container">
-                      <p class="lead "><strong>Id:</strong> <%= @follow.id  %> </p>
-                      <p class="lead"><strong>MemberName:</strong> <%= @member.name %>  </p>
-                      <p class="lead"><strong>Concert-Name:</strong> <%= @concert.concert_name %> </p>
-                      <p class="lead"><strong>Response:</strong> <%= @follow.response %></p>
-                      <p class="lead"><strong>Created At:</strong> <%= @follow.created_at %></p>
-                      <p class="lead"><strong>Response:</strong> <%= @follow.updated_at %></p>
-                   </div>
-                   </div>
-                   </div>
-                </div>
+             <%@follow_ups.each do |each_follow_ups| %>
+             
+              <%
+                ## retrieve the member name using each_follow_ups.id
+                @member_record = Member.where(id: each_follow_ups.member_id).take 
+                @memeber_name = @member_record.name
+        
+                ## retrieve the concert name using each_follow_ups.id
+                @concert_record = Concert.where(id: each_follow_ups.concert_id).take 
+                @concert_name = @concert_record.concert_name
+              %>
+               <div class="jumbotron jumbotron-fluid">
+                 <div class="container"> 
+                    <p class="lead "><strong>Id:</strong> <%= each_follow_ups.id  %> </p>
+                    <p class="lead"><strong>MemberName:</strong> <%= @memeber_name %>  </p>
+                    <p class="lead"><strong>Concert-Name:</strong> <%= @concert_name %> </p>
+                    <p class="lead"><strong>Response:</strong> <%= each_follow_ups.response %></p>
+                    <p class="lead"><strong>Created At:</strong> <%= each_follow_ups.created_at %></p>
+                    <p class="lead"><strong>Response:</strong> <%= each_follow_ups.updated_at %></p>
+                 </div>
+              </div>
+             <%end%>
          </div>
-         <div class="col-md-1">
-          <%= link_to 'BACK', report_follow_ups_by_volunteers_path, class: 'btn btn-primary' %>
-         </div>
-   </div>
+  </div>
+  <div class="col-md-1">
+    <%= link_to 'BACK', report_follow_ups_by_volunteers_path, class: 'btn btn-primary' %>
+  </div>
    <script></script>
 </div>

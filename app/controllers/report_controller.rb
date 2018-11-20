@@ -1,8 +1,5 @@
 class ReportController < ApplicationController
-  require 'pry'
-
   
-
   def expiring_subscription
     
   end  
@@ -13,24 +10,55 @@ class ReportController < ApplicationController
 #  binding.pry
   def get_volunteer_follow_ups
     
+    ## get the parameter as volunteer id
     @volunteer_id = (params[:volunteer_id])
-    @follow = FollowUp.where(volunteer_id: @volunteer_id).take
-    @member = Member.where(id: @follow.member_id).take
-    @concert = Concert.where(id:@follow.concert_id).take
-#    puts(@follow.response)
-#    puts(@member.name)
-#    puts(@concert.concert_name)
-#    puts(@follow.response)
-#    puts(@follow.created_at)
-#    puts(@follow.updated_at)
+    
+    ## get volunteer record on the basis of voluntee_id
+    @volunteer = Volunteer.where(id: @volunteer_id).take
+    
+    puts(@concert)
+    
+    ## get all the follow_ups 
+    @follow_ups = @volunteer.follow_ups
+    
+    ## iterate all active record
+    ## test purpose
+    @follow_ups.each do |f|
+      puts f.volunteer_id
+      puts f.member_id
+      puts f.concert_id
+      puts f.response
+    end
   end
   
+  
+  def get_concert_follow_ups
+    
+    ## get the parameter as concert id
+    @concert_id = (params[:concert_id])
+      
+    ## retrieve the concert record on the basis of id
+    @concert = Concert.where(id: @concert_id).take
+    
+    ## find all the follow_ups of that concert
+    ## return an array of active record
+    ## render it to html
+    @all_follow_ups = @concert.follow_ups
+    
+    ## for test purpose
+    puts @all_follow_ups
+    
+    
+    ## for test purpose
+    @all_follow_ups.each do |f|
+        puts f.volunteer_id
+        puts f.member_id
+        puts f.concert_id
+        puts f.response
+    end
+  end
   
   def follow_ups_by_concerts
-    @concert=Concert.all
-  end
-  
-  def get_concert_id
   end
   
 end

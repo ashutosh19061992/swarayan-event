@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_113503) do
+ActiveRecord::Schema.define(version: 2018_11_19_184223) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2018_11_19_113503) do
     t.string "facebook_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "concert_id"
+    t.index ["concert_id"], name: "index_artists_on_concert_id"
   end
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -40,8 +42,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_113503) do
     t.bigint "location_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "artist_id"
-    t.index ["artist_id"], name: "index_concerts_on_artist_id"
     t.index ["location_id"], name: "index_concerts_on_location_id"
   end
 
@@ -140,9 +140,9 @@ ActiveRecord::Schema.define(version: 2018_11_19_113503) do
     t.string "volunteer_type"
   end
 
+  add_foreign_key "artists", "concerts"
   add_foreign_key "attendances", "concerts"
   add_foreign_key "attendances", "members"
-  add_foreign_key "concerts", "artists"
   add_foreign_key "concerts", "locations"
   add_foreign_key "concerts_subscriptions", "concerts"
   add_foreign_key "concerts_subscriptions", "subscriptions"

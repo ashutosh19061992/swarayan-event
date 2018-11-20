@@ -11,6 +11,19 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <%= yield %>
+    <% flash.each do |key, value| %>
+      <%= content_tag :div, value, class: "flash #{key}" %>
+    <% end %>   
+      <%= yield %>
+     <!-- Footer -->
+     <div class="container-fluid" style="margin-top: 3%;" >
+         <div class="row bg-primary" >
+             <div class="col-md-4"></div>
+             <div class="col-md-4 text-ligt">© 2018 Copyright: swarayanapp.com</div>
+             <div class="col-md-4"></div>
+         </div>
+     </div>
+
+    
   </body>
 </html>

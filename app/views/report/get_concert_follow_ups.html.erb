@@ -1,0 +1,43 @@
+<div class="container-fluid"  style="margin-top: 10%;">
+   <div class="row text-ligt">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 h2 text-danger"><b>Follow Ups Of Concerts</b></div>
+      <div class="col-md-4"></div>
+   </div>
+   <div class="row">
+         <div class="col-md-1"></div>
+         <div class="col-md-10">
+          <% @all_follow_ups.each do |each_follow_ups| %>
+             <% 
+              ## retrieve the member name using each_follow_ups.id
+              @member_record = Member.where(id: each_follow_ups.member_id).take 
+              @memeber_name = @member_record.name
+              
+              ## retrieve the concert name using each_follow_ups.id
+              @concert_record = Concert.where(id: each_follow_ups.concert_id).take 
+              @concert_name = @concert_record.concert_name
+              
+              ## retrieve the volunteer name using each_follow_ups.id
+              @volunteer_record = Volunteer.where(id: each_follow_ups.volunteer_id).take 
+              @volunteer_name = @volunteer_record.name
+             %>
+             
+              <div class="jumbotron jumbotron-fluid">
+                <div class="container"> 
+                   <p class="lead "><strong>Id:</strong> <%=  each_follow_ups.id %> </p>
+                   <p class="lead "><strong>Member Name:</strong> <%=  @memeber_name %></p>
+                   <p class="lead"><strong>Concert Name:</strong> <%= @concert_name %></p>
+                   <p class="lead"><strong>Response:</strong> <%=  each_follow_ups.response %> </p>
+                   <p class="lead"><strong>Created_At:</strong> <%=  each_follow_ups.created_at %></p>
+                   <p class="lead"><strong>Updated At:</strong> <%=  each_follow_ups.updated_at %></p>
+                   <p class="lead"><strong>Volunteer Name:</strong> <%=  @volunteer_name %></p>
+                </div>
+              </div>
+          <%end%>
+         </div>
+  </div>
+  <div class="col-md-1">
+    <%= link_to 'BACK', report_follow_ups_by_concerts_path, class: 'btn btn-primary' %>
+  </div>
+   <script></script>
+</div>

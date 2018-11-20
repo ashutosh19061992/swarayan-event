@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'report/follow_ups_by_volunteers'
   
   get 'report/get_volunteer_follow_ups'
-  
+  get 'report/get_concert_follow_ups'
   #subscription report
   get 'subscription_report/active'
   get 'subscription_report/inactive'

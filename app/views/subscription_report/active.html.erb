@@ -1,2 +1,41 @@
-<h1>SubscriptionReport#active</h1>
-<h2>Active report</h2>
+<div class="container-fluid"  style="margin-top: 5%;">
+   <div class="row text-ligt">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 h2 text-danger"><b>ACTIVE SUBSCRIPTIONS</b></div>
+      <div class="col-md-4"></div>
+   </div>
+    <div class="row">
+        <div class="col-md-11"></div>
+        <div class="col-md-1">
+             <%= link_to 'BACK', root_path, class: 'btn btn-primary' %>
+        </div>
+    </div>
+   <div class="row">
+         <div class="col-md-1"></div>
+         <div class="col-md-10">
+            <%  @active_subscription.each do |active_record| %> 
+             <%
+                @member_record = Member.where( id: active_record.member_id ).take 
+                @member_name = @member_record.name
+                
+                @product_record = Product.where( id: active_record.product_id ).take
+                @product_name = @product_record.name
+             %>
+               <div class="jumbotron jumbotron-fluid">
+                 <div class="container"> 
+                    <p class="lead "><strong>Id:</strong> <%= active_record.id  %> </p>
+                    <p class="lead "><strong>Status:</strong> <%= active_record.status  %> </p>
+                    <p class="lead "><strong>Product Name:</strong> <%= @product_name  %> </p>
+                    <p class="lead"><strong>MemberName:</strong> <%= @member_name %>  </p>
+                    <p class="lead"><strong>Subscribed-At:</strong> <%= active_record.subscribed_at %> </p>
+                    <p class="lead"><strong>Duration:</strong> <%= active_record.duration %></p>
+                    <p class="lead"><strong>Created At:</strong> <%= active_record.created_at %></p>
+                    <p class="lead"><strong>Updated At:</strong> <%= active_record.updated_at %></p>
+                 </div>
+              </div>
+            <%  end %> 
+         </div>
+  </div>
+  <div class="col-md-1"></div>
+   <script></script>
+</div>

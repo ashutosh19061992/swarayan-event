@@ -11,13 +11,13 @@ class ConcertDashboard < Administrate::BaseDashboard
     location: Field::BelongsTo,
     follow_ups: Field::HasMany,
     members: Field::HasMany,
+    artists: Field::HasMany,
     subscriptions: Field::HasMany,
     id: Field::Number,
     concert_name: Field::String,
     concert_date: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    artist_id: Field::Number,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -29,7 +29,7 @@ class ConcertDashboard < Administrate::BaseDashboard
     :location,
     :follow_ups,
     :members,
-    :subscriptions,
+    :artists,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -38,25 +38,23 @@ class ConcertDashboard < Administrate::BaseDashboard
     :location,
     :follow_ups,
     :members,
+    :artists,
     :subscriptions,
     :id,
     :concert_name,
     :concert_date,
     :created_at,
     :updated_at,
-    :artist_id,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :location,
-    :follow_ups,
-    :members,
-    :subscriptions,
+    :location, 
+    :artists,
+    :concert_name,
     :concert_date,
-    :artist_id,
   ].freeze
 
   # Overwrite this method to customize how concerts are displayed

@@ -1,7 +1,7 @@
-<div class="container-fluid"  style="margin-top: 10%;">
+<div class="container-fluid"  style="margin-top: 5%;">
    <div class="row text-ligt">
       <div class="col-md-4"></div>
-      <div class="col-md-4 h2 text-danger">Follow Ups By Concerts</div>
+      <div class="col-md-4 h2 text-danger"><b>Concerts</b></div>
       <div class="col-md-4"></div>
    </div>
    <div class="row">
@@ -13,7 +13,7 @@
                   <p class="lead "><strong>Id:</strong> <%= concert.id %></p>
                   <p class="lead"><strong>Concert Name:</strong> <%= concert.concert_name %></p>
                   <p class="lead"><strong>Concert Date:</strong> <%= concert.concert_date %></p>
-                  <p class="lead"><strong>Follow_ups:</strong> <% %></p>
+                  <p class="lead"><strong>Follow_ups:</strong> <%= link_to "follow_ups" ,report_get_concert_follow_ups_path(:concert_id => concert.id) %></p>
                </div>
             </div>
             <% end %>
