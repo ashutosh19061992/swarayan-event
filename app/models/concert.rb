@@ -1,4 +1,5 @@
 class Concert < ApplicationRecord
+  has_many :attendances
   belongs_to :location, :dependent => :destroy   
   has_many :follow_ups  
   has_many :artists, :dependent => :destroy 

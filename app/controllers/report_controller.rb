@@ -61,4 +61,12 @@ class ReportController < ApplicationController
   def follow_ups_by_concerts
   end
   
+  def get_concert_attendances
+   
+    @concert_id = (params[:concert_id])
+    @concert_record = Concert.where(id: @concert_id).take
+    @all_attendance = @concert_record.attendances
+    
+  end
+  
 end

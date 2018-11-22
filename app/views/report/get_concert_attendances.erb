@@ -1,0 +1,30 @@
+<div class="container-fluid" style="margin-top: 5%;">
+      <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 h2 text-danger"><b>Attendance Of Concert</b></div>
+      <div class="col-md-4"></div>
+   </div>
+    
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <%@all_attendance.each do | each_attedance |%>
+            <%
+              @member_record = Member.where(id: each_attedance.member_id).take
+              @member_name = @member_record.name
+
+              @concert_record = Concert.where(id: each_attedance.concert_id).take
+              @concert_name = @concert_record.concert_name
+            %>
+              <div class="jumbotron jumbotron-fluid">
+                  <div class="container">
+                    <p class="lead"><strong>MemberName:</strong> <%= @memeber_name %>  </p>
+                    <p class="lead"><strong>Concert-Name:</strong> <%= @concert_name %> </p>
+                    <p class="lead"><strong>Head Count:</strong> <%= each_attedance.head_count %></p>
+                  </div>
+              </div>
+            <%end%>
+        </div>
+        <div class="md-1"></div>
+    </div>
+</div>

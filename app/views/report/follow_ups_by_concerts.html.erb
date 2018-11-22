@@ -14,6 +14,8 @@
                   <p class="lead"><strong>Concert Name:</strong> <%= concert.concert_name %></p>
                   <p class="lead"><strong>Concert Date:</strong> <%= concert.concert_date %></p>
                   <p class="lead"><strong>Follow_ups:</strong> <%= link_to "follow_ups" ,report_get_concert_follow_ups_path(:concert_id => concert.id) %></p>
+                  <p class="lead"><strong>Attendance:</strong> <%= link_to "attendance" ,report_get_concert_attendances_path(:concert_id => concert.id) %></p>
+
                </div>
             </div>
             <% end %>

@@ -9,17 +9,17 @@
          <div class="col-md-10">
           <% @all_follow_ups.each do |each_follow_ups| %>
              <% 
-              ## retrieve the member name using each_follow_ups.id
-              @member_record = Member.where(id: each_follow_ups.member_id).take 
-              @memeber_name = @member_record.name
-              
-              ## retrieve the concert name using each_follow_ups.id
-              @concert_record = Concert.where(id: each_follow_ups.concert_id).take 
-              @concert_name = @concert_record.concert_name
-              
-              ## retrieve the volunteer name using each_follow_ups.id
-              @volunteer_record = Volunteer.where(id: each_follow_ups.volunteer_id).take 
-              @volunteer_name = @volunteer_record.name
+                ## retrieve the member name using each_follow_ups.id
+                @member_record = Member.where(id: each_follow_ups.member_id).take 
+                @memeber_name = @member_record.name
+
+                ## retrieve the concert name using each_follow_ups.id
+                @concert_record = Concert.where(id: each_follow_ups.concert_id).take 
+                @concert_name = @concert_record.concert_name
+
+                ## retrieve the volunteer name using each_follow_ups.id
+                @volunteer_record = Volunteer.where(id: each_follow_ups.volunteer_id).take 
+                @volunteer_name = @volunteer_record.name
              %>
              
               <div class="jumbotron jumbotron-fluid">

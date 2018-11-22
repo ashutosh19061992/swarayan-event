@@ -60,7 +60,7 @@ class ConcertDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how concerts are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(concert)
-  #   "Concert ##{concert.id}"
-  # end
+   def display_resource(concert)
+      concert.concert_name
+   end
 end
