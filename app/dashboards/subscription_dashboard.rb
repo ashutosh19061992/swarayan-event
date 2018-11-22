@@ -53,6 +53,7 @@ class SubscriptionDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :member,
     :product,
+    :concerts,
     :subscribed_at,
     :duration,
     :keyword,

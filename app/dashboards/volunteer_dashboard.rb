@@ -18,7 +18,7 @@ class VolunteerDashboard < Administrate::BaseDashboard
     associated_since: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    volunteer_type: Field::String.with_options(searchable: false),
+    volunteer_type: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

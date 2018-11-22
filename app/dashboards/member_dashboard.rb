@@ -9,8 +9,6 @@ class MemberDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     follow_ups: Field::HasMany,
-    volunteer: Field::BelongsTo,
-    concert: Field::BelongsTo,
     attendances: Field::HasMany,
     subscriptions: Field::HasMany,
     concerts: Field::HasMany,
@@ -34,17 +32,15 @@ class MemberDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :follow_ups,
-    :volunteer,
-    :concert,
     :attendances,
+    :subscriptions,
+    :concerts,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :follow_ups,
-    :volunteer,
-    :concert,
     :attendances,
     :subscriptions,
     :concerts,
@@ -65,6 +61,10 @@ class MemberDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+#    :follow_ups,
+#    :attendances,
+#    :subscriptions,
+#    :concerts,
     :name,
     :email,
     :phone_no,

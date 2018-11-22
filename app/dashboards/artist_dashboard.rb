@@ -21,6 +21,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     facebook_url: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    concert_id: Field::Number,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -51,12 +52,16 @@ class ArtistDashboard < Administrate::BaseDashboard
     :facebook_url,
     :created_at,
     :updated_at,
+    :concert_id,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+#    :remunerations,
+#    :concerts,
+    :specialities,
     :name,
     :description,
     :city,
@@ -64,6 +69,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     :phone_no,
     :linkedlin_url,
     :facebook_url,
+#    :concert_id,
   ].freeze
 
   # Overwrite this method to customize how artists are displayed

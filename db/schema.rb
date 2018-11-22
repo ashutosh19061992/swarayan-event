@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_19_184223) do
+ActiveRecord::Schema.define(version: 2018_11_21_151635) do
 
   create_table "artists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2018_11_19_184223) do
     t.datetime "updated_at", null: false
     t.bigint "concert_id"
     t.index ["concert_id"], name: "index_artists_on_concert_id"
+  end
+
+  create_table "artists_specialities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "artist_id"
+    t.bigint "speciality_id"
+    t.index ["artist_id"], name: "index_artists_specialities_on_artist_id"
+    t.index ["speciality_id"], name: "index_artists_specialities_on_speciality_id"
   end
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -84,10 +91,6 @@ ActiveRecord::Schema.define(version: 2018_11_19_184223) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
-    t.bigint "volunteer_id"
-    t.bigint "concert_id"
-    t.index ["concert_id"], name: "index_members_on_concert_id"
-    t.index ["volunteer_id"], name: "index_members_on_volunteer_id"
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,11 +112,9 @@ ActiveRecord::Schema.define(version: 2018_11_19_184223) do
   end
 
   create_table "specialities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "specility_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "artist_id"
-    t.index ["artist_id"], name: "index_specialities_on_artist_id"
   end
 
   create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -141,6 +142,8 @@ ActiveRecord::Schema.define(version: 2018_11_19_184223) do
   end
 
   add_foreign_key "artists", "concerts"
+  add_foreign_key "artists_specialities", "artists"
+  add_foreign_key "artists_specialities", "specialities"
   add_foreign_key "attendances", "concerts"
   add_foreign_key "attendances", "members"
   add_foreign_key "concerts", "locations"
@@ -149,11 +152,8 @@ ActiveRecord::Schema.define(version: 2018_11_19_184223) do
   add_foreign_key "follow_ups", "concerts"
   add_foreign_key "follow_ups", "members"
   add_foreign_key "follow_ups", "volunteers"
-  add_foreign_key "members", "concerts"
-  add_foreign_key "members", "volunteers"
   add_foreign_key "remunerations", "artists"
   add_foreign_key "remunerations", "concerts"
-  add_foreign_key "specialities", "artists"
   add_foreign_key "subscriptions", "members"
   add_foreign_key "subscriptions", "products"
 end
