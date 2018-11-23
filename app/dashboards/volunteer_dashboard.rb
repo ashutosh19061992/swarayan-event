@@ -53,6 +53,8 @@ class VolunteerDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+#    :follow_ups,
+#    :members,
     :name,
     :phone_no,
     :email,
@@ -64,7 +66,7 @@ class VolunteerDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how volunteers are displayed
   # across all pages of the admin dashboard.
   #
-   def display_resource(volunteer)
+  def display_resource(volunteer)
      volunteer.name
-   end
+  end
 end

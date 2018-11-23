@@ -7,7 +7,7 @@ class AttendanceReportController < ApplicationController
   def date_range
       puts @from_date = (params[:from])
       puts @to_date =(params[:to])
-      puts(Attendance.first.created_at.strftime("%Y-%m-%d"))
+#      puts(Attendance.first.created_at.strftime("%Y-%m-%d"))
       @attendance_record = Attendance.where(:created_at => @from_date..@to_date)
       puts(@attendance_record)
       @attendance_record.each do |attendance|
