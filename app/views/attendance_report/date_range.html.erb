@@ -1,24 +1,80 @@
 <div class="container-fluid"  style="margin-top: 5%;">
    <div class="row text-ligt">
       <div class="col-md-4"></div>
-      <div class="col-md-4 h2 text-danger"><b>Attendance in Date Range</b></div>
-      <div class="col-md-4"></div>
+      <div class="col-md-4 h2 text-danger"><b> ATTENDANCE REPORT IN DATE RANGE </b></div>
+      <div class="col-md-4"></div> 
    </div>
-    <div class="row">
-        <div class="col-md-11"></div>
-        <div class="col-md-1">
-             <%= link_to 'BACK', root_path, class: 'btn btn-primary' %>
-        </div>
-    </div>
    <div class="row">
          <div class="col-md-1"></div>
          <div class="col-md-10">
             <div class="jumbotron jumbotron-fluid">
                  <div class="container"> 
+                     <div class="row">
+                        <%= form_tag(url_for(:controller => "attendance_report", :action => "date_range"), :id => "report_filter", class: "form-horizontal", :method => :get) do %>
+                          <div class="col-sm-4">
+                            <b>From:</b>
+                            <div class="form-group">
+                              <input type="date" name="from" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-2"></div>
+                          
+                          <div class="col-sm-4">
+                            <div class="form-group">
+                               <b>To:</b> 
+                              <input type="date" name="to" class="form-control">
+                            </div>
+                          </div>
+                          <div class="col-sm-2" style="margin-top: 18px;">
+                              <input class="btn btn-primary btn-block"  name="commit" type="submit" value="Seach" />
+                          </div>
+                        <%end%>
+                     </div>
                  </div>
               </div>
          </div>
+         <div class="col-md-1"></div>
   </div>
-  <div class="col-md-1"></div>
-   <script></script>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="bg-primary">
+                  <th scope="col">Member Name</th>
+                  <th scope="col">Head Count</th>
+                  <th scope="col">Concert Name</th>
+                  <th scope="col">Concert Location</th>
+                  <th scope="col">Concert City</th>
+                  <th scope="col">Concert State</th>
+                </tr>
+              </thead>
+                <% @attendance_record.each do |attendance| %>
+                <% @member_name = Member.where(id: attendance.member_id).take.name %>
+                <% @concert_name = Concert.where(id: attendance.concert_id).take.concert_name %>
+                <% @concert_location_name = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.name %>
+                <% @concert_location_state = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.state %>
+                <% @concert_city_location = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.city %>
+                <tbody>
+                 <tr class="bg-info">   
+                    <td> <%=  @member_name %></td>
+                    <td> <%= attendance.head_count %></td>
+                    <td> <%= @concert_name %></td>
+                    <td> <%= @concert_location_name %></td>
+                    <td> <%= @concert_city_location%></td>
+                    <td> <%= @concert_location_state %></td>
+                 </tr>
+               </tbody>
+              <% end %>
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+             <%= link_to 'BACK', root_path, class: 'btn btn-primary' %>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
 </div>

@@ -49,23 +49,23 @@
                   <th scope="col">Concert State</th>
                 </tr>
               </thead>
-                <% @attendance_record.each do |attendance| %>
-                <% @member_name = Member.where(id: attendance.member_id).take.name %>
-                <% @concert_name = Concert.where(id: attendance.concert_id).take.concert_name %>
-                <% @concert_location_name = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.name %>
-                <% @concert_location_state = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.state %>
-                <% @concert_city_location = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.city %>
+                <%# @attendance_record.each do |attendance| %>
+                <%# @member_name = Member.where(id: attendance.member_id).take.name %>
+                <%# @concert_name = Concert.where(id: attendance.concert_id).take.concert_name %>
+                <%# @concert_location_name = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.name %>
+                <%# @concert_location_state = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.state %>
+                <%# @concert_city_location = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.city %>
                 <tbody>
                  <tr class="bg-info">   
-                    <td> <%=  @member_name %></td>
-                    <td> <%= attendance.head_count %></td>
-                    <td> <%= @concert_name %></td>
-                    <td> <%= @concert_location_name %></td>
-                    <td> <%= @concert_city_location%></td>
-                    <td> <%= @concert_location_state %></td>
+                    <%#*<td> <%=  @member_name %></td>%>
+                    <%#*<td> <%= attendance.head_count %></td>%>
+                    <%#*<td> <%= @concert_name %></td>%>
+                    <%#*<td> <%= @concert_location_name %></td>%>
+                    <%#*<td> <%= @concert_city_location%></td>%>
+                    <%#*<td> <%= @concert_location_state %></td>%>
                  </tr>
                </tbody>
-              <% end %>
+              <%# end %>
             </table>
         </div>
         <div class="col-md-1"></div>
