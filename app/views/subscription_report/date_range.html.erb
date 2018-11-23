@@ -14,7 +14,7 @@
                           <div class="col-sm-4">
                             <b>From:</b>
                             <div class="form-group">
-                              <input type="date" name="from" class="form-control">
+                              <input type="date" name="subs_from" class="form-control">
                             </div>
                           </div>
                           <div class="col-sm-2"></div>
@@ -22,7 +22,7 @@
                           <div class="col-sm-4">
                             <div class="form-group">
                                <b>To:</b> 
-                              <input type="date" name="to" class="form-control">
+                              <input type="date" name="subs_to" class="form-control">
                             </div>
                           </div>
                           <div class="col-sm-2" style="margin-top: 18px;">
@@ -41,31 +41,29 @@
             <table class="table table-bordered">
               <thead>
                 <tr class="bg-primary">
+                  <th scope="col">Date</th>  
                   <th scope="col">Member Name</th>
-                  <th scope="col">Head Count</th>
-                  <th scope="col">Concert Name</th>
-                  <th scope="col">Concert Location</th>
-                  <th scope="col">Concert City</th>
-                  <th scope="col">Concert State</th>
+                  <th scope="col">Product Name</th>
+                  <th scope="col">Product Description</th>
+                  <th scope="col">Duration(Year)</th>
+                  <th scope="col">Status</th>
                 </tr>
               </thead>
-                <%# @attendance_record.each do |attendance| %>
-                <%# @member_name = Member.where(id: attendance.member_id).take.name %>
-                <%# @concert_name = Concert.where(id: attendance.concert_id).take.concert_name %>
-                <%# @concert_location_name = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.name %>
-                <%# @concert_location_state = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.state %>
-                <%# @concert_city_location = Location.where(id: Concert.where(id: attendance.concert_id).take.location_id).take.city %>
+                <% @subscription_date_range.each do |subscription| %>
+                <% @member_name = Member.where(id: subscription.member_id).take.name %>
+                <% @product_name = Product.where(id: subscription.product_id).take.name %>
+                <% @product_description = Product.where(id: subscription.product_id).take.description %>
                 <tbody>
-                 <tr class="bg-info">   
-                    <%#*<td> <%=  @member_name %></td>%>
-                    <%#*<td> <%= attendance.head_count %></td>%>
-                    <%#*<td> <%= @concert_name %></td>%>
-                    <%#*<td> <%= @concert_location_name %></td>%>
-                    <%#*<td> <%= @concert_city_location%></td>%>
-                    <%#*<td> <%= @concert_location_state %></td>%>
+                 <tr class="bg-info"> 
+                    <td> <%=  subscription.created_at %></td>
+                    <td> <%= @member_name %></td>
+                    <td> <%= @product_name %></td>
+                    <td> <%= @product_description %></td>
+                    <td> <%= subscription.duration %></td>
+                    <td> <%= subscription.status %></td>
                  </tr>
                </tbody>
-              <%# end %>
+              <% end %>
             </table>
         </div>
         <div class="col-md-1"></div>

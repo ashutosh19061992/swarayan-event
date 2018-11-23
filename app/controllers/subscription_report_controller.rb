@@ -42,6 +42,10 @@ class SubscriptionReportController < ApplicationController
   
   ## subscription in date range
   def date_range
+    @subs_from = (params[:subs_from])
+    @subs_to = (params[:subs_to])
+    Subscription.first.subscribed_at
+    @subscription_date_range = Subscription.where(:subscribed_at => @subs_from..@subs_to)
   end
   
 end
