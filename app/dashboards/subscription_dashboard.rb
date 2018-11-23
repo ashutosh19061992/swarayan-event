@@ -63,7 +63,7 @@ class SubscriptionDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how subscriptions are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(subscription)
-  #   "Subscription ##{subscription.id}"
-  # end
+#   def display_resource(subscription)
+#   
+#   end
 end

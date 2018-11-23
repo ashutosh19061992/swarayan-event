@@ -66,7 +66,6 @@ class ReportController < ApplicationController
     @concert_id = (params[:concert_id])
     @concert_record = Concert.where(id: @concert_id).take
     @all_attendance = @concert_record.attendances
-    
   end
   
 end
