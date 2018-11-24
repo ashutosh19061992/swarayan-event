@@ -47,6 +47,7 @@
                   <th scope="col">Product Description</th>
                   <th scope="col">Duration(Year)</th>
                   <th scope="col">Status</th>
+                  <th scope="col">Expiring Subscription Date</th>
                 </tr>
               </thead>
                 <% @inactive_expiring_sub_in_date_range.each do |inactive_subscription| %>
@@ -61,6 +62,7 @@
                     <td> <%= @product_description %></td>
                     <td> <%= inactive_subscription.duration %></td>
                     <td> <%= inactive_subscription.status %></td>
+                    <td> <%= inactive_subscription.subscribed_at + inactive_subscription.duration.year %></td>
                  </tr>
                </tbody>
               <% end %>

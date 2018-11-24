@@ -3,7 +3,7 @@ class ReportController < ApplicationController
   def expiring_subscription
     puts @from_date = (params[:subs_from])
     puts @to_date = (params[:subs_to])
-    @inactive_expiring_sub_in_date_range = Subscription.where(:subscribed_at => @from_date..@to_date, status: "inactive")
+    @inactive_expiring_sub_in_date_range = Subscription.where(:subscribed_at => @from_date..@to_date, status: "active")
     puts @inactive_expiring_sub_in_date_range
   end  
 
