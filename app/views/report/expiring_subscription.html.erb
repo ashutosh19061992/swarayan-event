@@ -50,19 +50,19 @@
                   <th scope="col">Expiring Subscription Date</th>
                 </tr>
               </thead>
-                <% @inactive_expiring_sub_in_date_range.each do |inactive_subscription| %>
-                <% @member_name = Member.where(id: inactive_subscription.member_id).take.name %>
-                <% @product_name = Product.where(id: inactive_subscription.product_id).take.name %>
-                <% @product_description = Product.where(id: inactive_subscription.product_id).take.description %>
+                <% @expiring_subscription.each do |active_subscription| %>
+                <% @member_name = Member.where(id: active_subscription.member_id).take.name %>
+                <% @product_name = Product.where(id: active_subscription.product_id).take.name %>
+                <% @product_description = Product.where(id: active_subscription.product_id).take.description %>
                 <tbody>
                  <tr class="bg-info"> 
-                    <td> <%= inactive_subscription.subscribed_at %></td>
+                    <td> <%= active_subscription.subscribed_at %></td>
                     <td> <%= @member_name %></td>
                     <td> <%= @product_name %></td>
                     <td> <%= @product_description %></td>
-                    <td> <%= inactive_subscription.duration %></td>
-                    <td> <%= inactive_subscription.status %></td>
-                    <td> <%= inactive_subscription.subscribed_at + inactive_subscription.duration.year %></td>
+                    <td> <%= active_subscription.duration %></td>
+                    <td> <%= active_subscription.status %></td>
+                    <td> <%= active_subscription.subscribed_at + active_subscription.duration.year %></td>
                  </tr>
                </tbody>
               <% end %>
